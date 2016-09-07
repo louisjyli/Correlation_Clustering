@@ -12,9 +12,9 @@ else:
 result = [0]*n
 minCost = n**2+1
 E = set()
-E.add(str(1)+'TO'+str(0))
-E.add(str(2)+'TO'+str(0))
-E.add(str(2)+'TO'+str(1))
+E.add(str(1)+' '+str(0))
+E.add(str(2)+' '+str(0))
+E.add(str(2)+' '+str(1))
 
 for i in range(k**n):
     if i >= 1:
@@ -38,12 +38,12 @@ for i in range(k**n):
             cost = 0
             for source in range(n):
                 for dest in range(source,n):
-                    if str(source)+'TO'+str(dest) not in E and str(dest)+'TO'+str(source) not in E:
+                    if str(source)+' '+str(dest) not in E and str(dest)+' '+str(source) not in E:
                         if source != dest and result[source] == result[dest]:
                             cost += 1
                         else:
                             a = 0
-                    elif str(source)+'TO'+str(dest) in E or str(dest)+'TO'+str(source) in E:
+                    elif str(source)+' '+str(dest) in E or str(dest)+' '+str(source) in E:
                         if source != dest and result[source] != result[dest]:
                             cost += 1
                         else:
@@ -74,12 +74,12 @@ for i in range(k**n):
             cost = 0
             for source in range(n):
                 for dest in range(source,n):
-                    if str(source)+'TO'+str(dest) not in E and str(dest)+'TO'+str(source) not in E:
+                    if str(source)+' '+str(dest) not in E and str(dest)+' '+str(source) not in E:
                         if source != dest and result[source] == result[dest]:
                             cost += 1
                         else:
                             a = 0
-                    elif str(source)+'TO'+str(dest) in E or str(dest)+'TO'+str(source) in E:
+                    elif str(source)+' '+str(dest) in E or str(dest)+' '+str(source) in E:
                         if source != dest and result[source] != result[dest]:
                             cost += 1
                         else:
