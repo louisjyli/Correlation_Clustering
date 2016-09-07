@@ -1,7 +1,14 @@
 __author__ = 'louisjyli'
 from collections import Counter
 n = 3
-k = 2
+k_upper = 2
+k_lower = 1
+k = int(n/k_lower)
+if n % k != 0:
+    k = k + 1
+else:
+    a = 0
+
 result = [0]*n
 minCost = n**2+1
 E = set()
@@ -21,7 +28,9 @@ for i in range(k**n):
         counts = Counter(result)
         skip = 0
         for cluster in counts:
-            if counts[cluster] > k:
+            if counts[cluster] > k_upper:
+                skip = 1
+            elif counts[cluster] < k_lower:
                 skip = 1
             else:
                 a = 0
@@ -55,7 +64,9 @@ for i in range(k**n):
         counts = Counter(result)
         skip=0
         for cluster in counts:
-            if counts[cluster] > k:
+            if counts[cluster] > k_upper:
+                skip = 1
+            elif counts[cluster] < k_lower:
                 skip = 1
             else:
                 a = 0
@@ -72,7 +83,7 @@ for i in range(k**n):
                         if source != dest and result[source] != result[dest]:
                             cost += 1
                         else:
-                            a=0
+                            a = 0
                     else:
                         a = 0
         else:
